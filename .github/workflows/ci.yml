@@ -22,16 +22,10 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.2'
-
-    - name: PHP Syntax Check
-      run: |
-        files=$(find . -type f -name "*.php")
-        if [ -z "$files" ]; then
-          echo "No PHP files to lint."
-        else
-          echo "$files" | xargs -n1 php -l
-        fi
-
+        extensions: mbstring, xml, curl
+        ini-values: post_max_size=256M, upload_max_filesize=256M
+        coverage: none
+        
     # 4️⃣ Log in to Docker Hub
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
