@@ -1,4 +1,4 @@
-name: PHP CI + Docker Build & Push
+name: CI
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  php-lint-and-docker:
+  php-and-docker:
     runs-on: ubuntu-latest
 
     steps:
