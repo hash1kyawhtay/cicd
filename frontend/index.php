@@ -1,46 +1,41 @@
 <?php
-// Start session
 session_start();
+$error = '';
 
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Hardcoded username and password
-    $username = "admin";
-    $password = "12345";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    // Get form data
-    $inputUser = $_POST['username'];
-    $inputPass = $_POST['password'];
-
-    // Validate credentials
-    if ($inputUser === $username && $inputPass === $password) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $inputUser;
-        header("Location: welcome.php");
-        exit();
+    // Simple hardcoded login
+    if ($username === 'user' && $password === 'pass123') {
+        $_SESSION['logged_in'] = true;
+        header('Location: dashboard.php');
+        exit;
     } else {
-        $error = "Invalid username or password!";
+        $error = 'Invalid credentials';
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Simple PHP Login</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Login Form</h2>
-    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="POST" action="login.php">
-        <label for="username">Username:</label><br/>
-        <input type="text" name="username" id="username" required><br/><br/>
+    <h2>Login</h2>
+    <?php if ($error): ?>
+        <p style="color: red"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
+    <form method="POST">
+        <label>Username:</label><br>
+        <input type="text" name="username"><br><br>
         
-        <label for="password">Password:</label><br/>
-        <input type="password" name="password" id="password" required><br/><br/>
+        <label>Password:</label><br>
+        <input type="password" name="password"><br><br>
         
-        <button type="submit">Login</button>
+        <input type="submit" value="Login">
     </form>
 </body>
 </html>
