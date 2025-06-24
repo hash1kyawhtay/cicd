@@ -7,7 +7,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
 
 // Fetch API data
 function fetchApiData($endpoint) {
-    $url = "http://localhost:8888/cicd/backend/api.php?endpoint=$endpoint";
+    $url = "/backend/api.php?endpoint=$endpoint";
     return json_decode(file_get_contents($url), true);
 }
 
