@@ -20,6 +20,14 @@ RUN echo 'Alias / /var/www/html/frontend/\n\
     Require all granted\n\
 </Directory>' >> /etc/apache2/apache2.conf
 
+RUN echo 'Alias / /var/www/html/backend/\n\
+<Directory /var/www/html/backend>\n\
+    Options Indexes FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
+</Directory>' >> /etc/apache2/apache2.conf
+
+
 COPY . /var/www/html/
 
 # Permissions
