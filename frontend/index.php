@@ -11,7 +11,7 @@
 
     <script>
         function fetchData() {
-            fetch('http://localhost:9091/api.php')
+            fetch('http://backend-service/api.php')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('output').textContent = JSON.stringify(data, null, 4);
