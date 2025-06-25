@@ -11,7 +11,7 @@
 
     <script>
         function fetchData() {
-            fetch('http://host.docker.internal9091/backend/api.php')
+            fetch('http://host.docker.internal:9091/backend/api.php')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('output').textContent = JSON.stringify(data, null, 4);
