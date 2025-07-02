@@ -11,7 +11,7 @@
 
     <script>
         function fetchData() {
-            fetch('http://backend.ci.local:8081/api.php')
+            fetch('http://backend.ci.local/api.php')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('output').textContent = JSON.stringify(data, null, 4);
