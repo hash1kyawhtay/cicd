@@ -4,7 +4,7 @@
     <title>CI Project - Frontend</title>
 </head>
 <body>
-    <h1>Welcome to the CI Project</h1>
+    <h1>Welcome to the CICD Project</h1>
     <button onclick="fetchData()">Get API Data</button>
 
     <pre id="output"></pre>

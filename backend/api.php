@@ -24,7 +24,7 @@ try {
     $row = $stmt->fetch();
 
     echo json_encode([
-        "status" => "success",
+        "status" => "successful",
         "message" => $row['content'],
         "timestamp" => date("Y-m-d H:i:s")
     ]);
