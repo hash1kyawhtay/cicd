@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: ci-project
+  namespace: cicd
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: hashonekyaw/frontend:latest
+        image: hashonekyaw/cicd:latest
         ports:
         - containerPort: 80
 
@@ -24,7 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
-  namespace: ci-project
+  namespace: cicd
 spec:
   type: NodePort
   selector:
@@ -33,3 +33,8 @@ spec:
   - port: 80
     targetPort: 80
     nodePort: 30991  # maps to http://localhost:9091 (if you're using Docker Desktop or Minikube)
+
+
+
+
+

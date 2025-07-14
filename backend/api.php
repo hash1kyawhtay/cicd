@@ -4,11 +4,11 @@ header("Content-Type: application/json");
 
 // Database connection details
 $host = 'mysql-service';     // Kubernetes service name
-$db   = 'ci_project';        // Database name (created in MySQL deployment)
+$db   = 'ci';        // Database name (created in MySQL deployment)
 $user = 'root';              // MySQL root user (from MYSQL_ROOT_PASSWORD)
 $pass = 'root';              // MySQL root password (set in deployment env)
 $charset = 'utf8mb4';
-
+``
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -37,3 +37,7 @@ try {
 // Close the connection
 $pdo = null;    
 ?>
+
+
+
+
