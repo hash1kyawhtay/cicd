@@ -32,4 +32,4 @@ spec:
   ports:
   - port: 80
     targetPort: 80
-    nodePort: 30991  # maps to http://localhost:9091 (if you're using Docker Desktop or Minikube)
+    nodePort: 30992  # maps to http://localhost:9091 (if you're using Docker Desktop or Minikube)
