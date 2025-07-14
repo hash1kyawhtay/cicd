@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-pvc
-  namespace: ci-project
+  namespace: cicd
 spec:
   accessModes:
     - ReadWriteOnce
@@ -14,7 +14,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: ci-project
+  namespace: cicd
 spec:
   selector:
     matchLabels:
@@ -32,7 +32,7 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: root
         - name: MYSQL_DATABASE
-          value: ci_project
+          value: cicd
         ports:
         - containerPort: 3306
         volumeMounts:

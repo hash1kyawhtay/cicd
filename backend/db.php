@@ -1,8 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
-
-$host = 'mysql-sservice';
+$host = 'mysql-service'; // Kubernetes service name
 $db   = 'cicd';
 $user = 'root';
 $pass = 'root';  // MAMP default MySQL password
