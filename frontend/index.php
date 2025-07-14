@@ -147,7 +147,7 @@
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            fetch(`http://localhost:8888/cicd/backend/${type}.php`, {
+            fetch(`http://backend.cicd.local/${type}.php`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
